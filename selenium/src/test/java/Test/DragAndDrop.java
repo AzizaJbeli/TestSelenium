@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class DragAndDrop {
 
@@ -26,9 +27,9 @@ WebElement to;
 		to = driver.findElement(By.id("drappable"));
 		Actions action=new Actions(driver);
 		//draganddrop pertmet de deplacer le contenu de from dans to
-		action.dragAndDrop(From, To).perform();
+		action.dragAndDrop(from, to).perform();
 		String txt;
-		txt=To.getText();
+		txt=to.getText();
 		org.testng.Assert.assertEquals(txt, "Dropped!");
 		System.out.println("test ok");
 		driver.close();
